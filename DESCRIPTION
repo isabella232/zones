@@ -1,4 +1,4 @@
-Package: zone
+Package: zones
 Title: 'date' C++ Library Access for Working With Dates and Times
 Version: 0.0.0.9000
 Authors@R: 
@@ -19,8 +19,8 @@ Description: Provides C++ headers and callables for working with the
     specific calculations, along with a limited callable interface for
     time zone manipulations.
 License: MIT + file LICENSE
-URL: https://github.com/DavisVaughan/zone
-BugReports: https://github.com/DavisVaughan/zone/issues
+URL: https://github.com/DavisVaughan/zones
+BugReports: https://github.com/DavisVaughan/zones/issues
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
