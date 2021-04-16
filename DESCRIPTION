@@ -1,5 +1,5 @@
 Package: zone
-Title: What the Package Does (One Line, Title Case)
+Title: 'date' C++ Library Access for Working With Dates and Times
 Version: 0.0.0.9000
 Authors@R: 
     c(person(given = "Davis",
@@ -12,11 +12,16 @@ Authors@R:
              comment = "Author of the included date library"),
       person(given = "RStudio",
              role = c("cph", "fnd")))
-Description: What the package does (one paragraph).
+Description: Provides C++ headers and callables for working with the
+    'date' library. 'date' provides comprehensive support for working with
+    dates and date-times, which this package exposes to make it easier for
+    other R packages to utilize. Headers are provided for calendar
+    specific calculations, along with a limited callable interface for
+    time zone manipulations.
 License: MIT + file LICENSE
+URL: https://github.com/DavisVaughan/zone
+BugReports: https://github.com/DavisVaughan/zone/issues
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
-URL: https://github.com/DavisVaughan/zone
-BugReports: https://github.com/DavisVaughan/zone/issues

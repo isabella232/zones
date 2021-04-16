@@ -4,9 +4,14 @@
 \name{zone-package}
 \alias{zone}
 \alias{zone-package}
-\title{zone: What the Package Does (One Line, Title Case)}
+\title{zone: 'date' C++ Library Access for Working With Dates and Times}
 \description{
-What the package does (one paragraph).
+Provides C++ headers and callables for working with the
+    'date' library. 'date' provides comprehensive support for working with
+    dates and date-times, which this package exposes to make it easier for
+    other R packages to utilize. Headers are provided for calendar
+    specific calculations, along with a limited callable interface for
+    time zone manipulations.
 }
 \seealso{
 Useful links:
