@@ -76,10 +76,14 @@
 <a href="#zones" class="anchor"></a>zones</h1></div>
 <!-- badges: start -->
 
-<p>The goal of zones is to provide access to the C++ library, <a href="https://github.com/HowardHinnant/date">date</a>. This is a developer focused package, useful for those that are building their own date and date-time R package.</p>
-<p>Calendrical calculations are available through the <code>date/date.h</code> header. Time zone specific calculations are exposed through a combination of the <code>date/tz.h</code> header and a limited callable API that is safe to call from other R packages. All of this is accessible through a single include, <code>zones.h</code>.</p>
-<p>To use the callable API, zones must be in both the Imports and LinkingTo fields of the client’s package. Additionally, the client package should call <code><a href="reference/zones_initialize.html">zones::zones_initialize()</a></code> from its <code><a href="https://rdrr.io/r/base/ns-hooks.html">.onLoad()</a></code>, which will ensure that zones is loaded before any attempt to access its callable API is attempted.</p>
-<p>Function declared, but not implemented, in <code>tz.h</code> are <em>not</em> safe to call from other R packages. The critical ones have been exposed in the <code>zones::</code> C++ namespace accessible through <code>zones.h</code>. Attempting to call any other function from <code>tz.h</code> will likely crash your R session.</p>
+<p>The goal of zones is to provide access to the C++ library, <a href="https://github.com/HowardHinnant/date">date</a>. This is a developer focused package, useful for those that are building their own date and date-time R package, like <a href="https://clock.r-lib.org/">clock</a>.</p>
+<p>To use the C++ API supplied by zones:</p>
+<ul>
+<li><p>Add zones to both Imports and LinkingTo.</p></li>
+<li><p>Call <code><a href="reference/zones_initialize.html">zones::zones_initialize()</a></code> from your <code><a href="https://rdrr.io/r/base/ns-hooks.html">.onLoad()</a></code>.</p></li>
+<li><p>Access the date API through <code>#include &lt;zones/*.h&gt;</code> where <code><a href="https://rdrr.io/r/base/Arithmetic.html">*</a></code> is replaced with the date header you want to use.</p></li>
+</ul>
+<p>Note that while <code>zones/tz.h</code> declares many functions and types, most of their implementations are not present in the header file. This means that the functions in <code>zones/tz.h</code> are <em>not</em> safe to call from your R package. Instead, the most critical helpers have been exposed in a safe way in <code>zones/zones.h</code>. Use these instead.</p>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
