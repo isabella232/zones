@@ -3974,6 +3974,9 @@ public:
 
     CONSTCD14 std::chrono::seconds& seconds() NOEXCEPT {return s_;}
     CONSTCD11 std::chrono::seconds seconds() const NOEXCEPT {return s_;}
+    // zones-edit-start
+    CONSTCD14 precision& subseconds() NOEXCEPT {return sub_s_;}
+    // zones-edit-stop
     CONSTCD11 precision subseconds() const NOEXCEPT {return sub_s_;}
 
     CONSTCD14 precision to_duration() const NOEXCEPT
@@ -4087,11 +4090,26 @@ public:
         {}
 
     CONSTCD11 std::chrono::hours hours() const NOEXCEPT {return h_;}
+    // zones-edit-start
+    CONSTCD14 std::chrono::hours&
+        hours(detail::undocumented) NOEXCEPT {return h_;}
+    // zones-edit-stop
     CONSTCD11 std::chrono::minutes minutes() const NOEXCEPT {return m_;}
+    // zones-edit-start
+    CONSTCD14 std::chrono::minutes&
+        minutes(detail::undocumented) NOEXCEPT {return m_;}
+    // zones-edit-stop
     CONSTCD11 std::chrono::seconds seconds() const NOEXCEPT {return s_.seconds();}
     CONSTCD14 std::chrono::seconds&
         seconds(detail::undocumented) NOEXCEPT {return s_.seconds();}
     CONSTCD11 precision subseconds() const NOEXCEPT {return s_.subseconds();}
+    // zones-edit-start
+    CONSTCD14 precision&
+        subseconds(detail::undocumented) NOEXCEPT {return s_.subseconds();}
+    // zones-edit-stop
+    // zones-edit-start
+    CONSTCD11 dfs decimal_format_seconds(detail::undocumented) const NOEXCEPT {return s_;}
+    // zones-edit-stop
     CONSTCD11 bool is_negative() const NOEXCEPT {return neg_;}
 
     CONSTCD11 explicit operator  precision()   const NOEXCEPT {return to_duration();}
