@@ -21,9 +21,9 @@ other R packages. All of this is accessible through a single include,
 
 To use the callable API, zones must be in both the Imports and LinkingTo
 fields of the client’s package. Additionally, the client package should
-call `zones::zone_database_initialize()` from its `.onLoad()`, which
-will ensure that zones is loaded before any attempt to access its
-callable API is attempted.
+call `zones::zones_initialize()` from its `.onLoad()`, which will ensure
+that zones is loaded before any attempt to access its callable API is
+attempted.
 
 Function declared, but not implemented, in `tz.h` are *not* safe to call
 from other R packages. The critical ones have been exposed in the
