@@ -41,8 +41,11 @@ static const R_CallMethodDef CallEntries[] = {
 };
 }
 
+void api_init(DllInfo* dll);
+
 extern "C" void R_init_zones(DllInfo* dll){
   R_registerRoutines(dll, NULL, CallEntries, NULL, NULL);
   R_useDynamicSymbols(dll, FALSE);
+  api_init(dll);
   R_forceSymbols(dll, TRUE);
 }
