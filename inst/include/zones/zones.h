@@ -1,8 +1,8 @@
 #ifndef ZONES_ZONES_H
 #define ZONES_ZONES_H
 
-#include <date/date.h>
-#include <date/tz.h>
+#include <zones/date.h>
+#include <zones/tz.h>
 
 #include <R_ext/Rdynload.h>
 
