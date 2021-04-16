@@ -19,13 +19,17 @@ knitr::opts_chunk$set(
 [![R-CMD-check](https://github.com/DavisVaughan/zones/workflows/R-CMD-check/badge.svg)](https://github.com/DavisVaughan/zones/actions)
 <!-- badges: end -->
 
-The goal of zones is to provide access to the C++ library, [date](https://github.com/HowardHinnant/date). This is a developer focused package, useful for those that are building their own date and date-time R package.
+The goal of zones is to provide access to the C++ library, [date](https://github.com/HowardHinnant/date). This is a developer focused package, useful for those that are building their own date and date-time R package, like [clock](https://clock.r-lib.org/).
 
-Calendrical calculations are available through the `date/date.h` header. Time zone specific calculations are exposed through a combination of the `date/tz.h` header and a limited callable API that is safe to call from other R packages. All of this is accessible through a single include, `zones.h`.
+To use the C++ API supplied by zones:
 
-To use the callable API, zones must be in both the Imports and LinkingTo fields of the client's package. Additionally, the client package should call `zones::zones_initialize()` from its `.onLoad()`, which will ensure that zones is loaded before any attempt to access its callable API is attempted.
+- Add zones to both Imports and LinkingTo.
 
-Function declared, but not implemented, in `tz.h` are _not_ safe to call from other R packages. The critical ones have been exposed in the `zones::` C++ namespace accessible through `zones.h`. Attempting to call any other function from `tz.h` will likely crash your R session.
+- Call `zones::zones_initialize()` from your `.onLoad()`.
+
+- Access the date API through `#include <zones/*.h>` where `*` is replaced with the date header you want to use.
+
+Note that while `zones/tz.h` declares many functions and types, most of their implementations are not present in the header file. This means that the functions in `zones/tz.h` are _not_ safe to call from your R package. Instead, the most critical helpers have been exposed in a safe way in `zones/zones.h`. Use these instead.
 
 ## Installation
 
