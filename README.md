@@ -5,7 +5,7 @@
 
 <!-- badges: start -->
 
-[![R-CMD-check](https://github.com/DavisVaughan/zones/workflows/R-CMD-check/badge.svg)](https://github.com/DavisVaughan/zones/actions)
+[![R-CMD-check](https://github.com/r-lib/zones/workflows/R-CMD-check/badge.svg)](https://github.com/r-lib/zones/actions)
 <!-- badges: end -->
 
 The goal of zones is to provide access to the C++ library,
@@ -41,5 +41,5 @@ And the development version from [GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("DavisVaughan/zones")
+devtools::install_github("r-lib/zones")
 ```

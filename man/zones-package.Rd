@@ -16,8 +16,8 @@ Provides C++ headers and callables for working with the
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://github.com/DavisVaughan/zones}
-  \item Report bugs at \url{https://github.com/DavisVaughan/zones/issues}
+  \item \url{https://github.com/r-lib/zones}
+  \item Report bugs at \url{https://github.com/r-lib/zones/issues}
 }
 
 }
