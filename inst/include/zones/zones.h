@@ -7,6 +7,7 @@
 #include <R_ext/Rdynload.h>
 
 #include <string>
+#include <stdbool.h>
 
 // -----------------------------------------------------------------------------
 
@@ -14,33 +15,33 @@ namespace zones {
 
 static
 inline
-const date::time_zone*
-locate_zone(const std::string& name, std::string& error) {
-  typedef const date::time_zone* fn_t(const std::string&, std::string&);
+bool
+locate_zone(const std::string& name, const date::time_zone*& p_time_zone) {
+  typedef bool fn_t(const std::string&, const date::time_zone*&);
   static fn_t *fn = (fn_t*) R_GetCCallable("zones", "api_locate_zone");
-  return fn(name, error);
+  return fn(name, p_time_zone);
 }
 
 static
 inline
-date::local_info
+bool
 get_local_info(const date::local_seconds& tp,
                const date::time_zone* p_time_zone,
-               std::string& error) {
-  typedef date::local_info fn_t(const date::local_seconds&, const date::time_zone*, std::string&);
+               date::local_info& info) {
+  typedef bool fn_t(const date::local_seconds&, const date::time_zone*, date::local_info&);
   static fn_t *fn = (fn_t*) R_GetCCallable("zones", "api_get_local_info");
-  return fn(tp, p_time_zone, error);
+  return fn(tp, p_time_zone, info);
 }
 
 static
 inline
-date::sys_info
+bool
 get_sys_info(const date::sys_seconds& tp,
              const date::time_zone* p_time_zone,
-             std::string& error) {
-  typedef date::sys_info fn_t(const date::sys_seconds&, const date::time_zone*, std::string&);
+             date::sys_info& info) {
+  typedef bool fn_t(const date::sys_seconds&, const date::time_zone*, date::sys_info&);
   static fn_t *fn = (fn_t*) R_GetCCallable("zones", "api_get_sys_info");
-  return fn(tp, p_time_zone, error);
+  return fn(tp, p_time_zone, info);
 }
 
 } // namespace zones
